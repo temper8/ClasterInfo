@@ -51,7 +51,6 @@ host, user = get_secrets('site.json')
 info = get_remote_sinfo(host, user)
 print(info)
 
-
 h = hashlib.md5(info.encode('utf-8')).hexdigest()
 if compare_hash(h):
     print('ничего не делать')
