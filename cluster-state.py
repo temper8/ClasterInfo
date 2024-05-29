@@ -14,7 +14,6 @@ def get_secrets(fname:str):
     return data['host'], data['user']  
 
 def get_last_hash(fname):
-    # ='last_hash.txt'
     try:
         f = open(fname, 'rb')
     except OSError:
