@@ -50,7 +50,11 @@ def get_remote_sinfo(host:str, user:str):
 host, user = get_secrets('config.json')
 info = get_remote_sinfo(host, user)
 print(info)
-
+info = info.replace('up 60-00:00:0', '')
+info = info.replace('TIMELIMIT', '')
+info = info.replace('PARTITION', 'PART')
+info = info.replace('    ', '')
+print(info)
 h = hashlib.md5(info.encode('utf-8')).hexdigest()
 if compare_hash(h):
     print('ничего не делать')
