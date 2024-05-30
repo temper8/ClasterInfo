@@ -21,6 +21,6 @@ def get_remote_ls(host:str, user:str):
     client.close()
     return data.decode("utf-8")
 
-host, user = get_secrets('site.json')
+host, user = get_secrets('config.json')
 res = get_remote_ls(host, user)
 print(res)
