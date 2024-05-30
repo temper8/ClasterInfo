@@ -29,7 +29,7 @@ async def get_channels(bot):
     return channels
 
 async def send_msg(channel, message):
-    bot = telegram.Bot(token= get_bot_token('site.json'))
+    bot = telegram.Bot(token= get_bot_token('config.json'))
     try:
         await bot.initialize()
         # code
