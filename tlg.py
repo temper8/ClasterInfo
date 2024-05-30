@@ -18,7 +18,7 @@ def get_bot_token(fname:str):
 async def get_channels(bot):
     channels = {}
     res = await bot.get_updates()
-    print(res)
+    #print(res)
     for r in res:
         tmp = r.my_chat_member
         if type(tmp) is telegram._chatmemberupdated.ChatMemberUpdated:
@@ -44,10 +44,10 @@ async def send_msg(channel, message):
     finally:
         await bot.shutdown()
 
-
-
+def send_message(channel, message):
+    asyncio.run(send_msg(channel, message))
 
 if __name__ == "__main__":
     print('test tlg')
-    asyncio.run(send_msg('Claster Info', 'Hello'))
+    send_message('Claster Info', 'Hello')
 
