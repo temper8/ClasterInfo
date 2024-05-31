@@ -59,7 +59,7 @@ def get_remote_sinfo(host:str, user:str):
 #host, user = get_secrets('config.json')
 info = load_sinfo('head1_sinfo.log')
 print(info)
-info = info.replace('cascade*     up 60-00:00:0', '')
+info = info.replace('cascade*     up 60-00:00:0    ', '')
 info = info.replace('TIMELIMIT', '')
 info = info.replace('PARTITION', ' ')
 print(info)
@@ -68,4 +68,4 @@ if compare_hash(h):
     print('ничего не делать')
 else:
     print('отправить в телеграмм')
-    tlg.send_message('Cluster Info', info)
+    tlg.send_message('Head1 Info', info)

@@ -50,5 +50,5 @@ def send_message(channel, message):
 
 if __name__ == "__main__":
     print('test tlg')
-    send_message('Claster Info', 'Hello')
+    send_message('Head1 Info', 'Hello')
 
