@@ -68,4 +68,4 @@ if compare_hash(h):
     print('ничего не делать')
 else:
     print('отправить в телеграмм')
-    tlg.send_message('Claster Info', info)
+    tlg.send_message('Cluster Info', info)
