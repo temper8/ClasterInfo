@@ -3,6 +3,7 @@ import json
 import sys
 import hashlib
 import tlg
+from datetime import datetime
 
 def get_secrets(fname:str):
     try:
@@ -35,8 +36,6 @@ def load_sinfo(fname):
 def compare_hash(hash:str):
     fn = "last_hash"
     last = get_last_hash(fn)
-    print(last)
-    print(hash)
     if last == hash:
         print("хэши совпадают")
         return True
@@ -57,6 +56,8 @@ def get_remote_sinfo(host:str, user:str):
     return data.decode("utf-8")
 
 #host, user = get_secrets('config.json')
+print()
+print("Script was run at",datetime.now())
 info = load_sinfo('head1_sinfo.log')
 print(info)
 info = info.replace('cascade*     up 60-00:00:0    ', '')
