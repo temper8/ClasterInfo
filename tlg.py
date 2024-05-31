@@ -38,7 +38,8 @@ async def send_msg(channel, message):
 
         if channel in channels:        
             await bot.send_message(chat_id= channels[channel], text= message)
-            print(f'{channel} : {message}')
+            print(f'{channel} :')
+            print(message)
         else:
             print(f"can't find channel {channel} ")
     finally:
