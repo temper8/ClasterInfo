@@ -163,3 +163,4 @@ cython_debug/
 site.json
 last_hash
 config.json
+channels.json
