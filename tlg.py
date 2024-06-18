@@ -13,19 +13,32 @@ def get_bot_token(fname:str):
         data = json.load(f)
     return data['bot_token']
 
+def read_channels(fname:str):
+    try:
+        f = open(fname, 'r')
+    except OSError:
+        return {}
+    with f:
+        data = json.load(f)
+    return data
 
+def write_channels(fname:str, data):
+    with open(fname, 'w') as f:
+        json.dump(data, f, indent = 2)
 
 async def get_channels(bot):
-    channels = {}
+    channels = read_channels('channels.json')
     res = await bot.get_updates()
     #print(res)
     for r in res:
         tmp = r.my_chat_member
+        #print(tmp)
         if type(tmp) is telegram._chatmemberupdated.ChatMemberUpdated:
             if tmp.chat.type == 'channel':
                 #print(tmp.chat)
                 channels[tmp.chat.title] = tmp.chat.id
-    print(channels)                
+    #print(channels)      
+    write_channels('channels.json', channels)          
     return channels
 
 async def send_msg(channel, message):
